@@ -7,6 +7,7 @@ recipe:
     完整安装
 install_files: >-
   *custom.yaml
+  __weasel.yaml
 
   update.ps1
 
