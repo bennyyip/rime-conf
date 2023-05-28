@@ -3,9 +3,11 @@
 !.gitignore
 
 !*custom.yaml
+!__weasel.yaml
 
 !update.ps1
 
 !full.recipe.yaml
 !*packages.conf
 !README.md
+

@@ -2,15 +2,8 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3.0
   generator: "Weasel::UIStyleSettings"
-  modified_time: "Sun May 28 16:41:08 2023"
+  modified_time: "Sun May 28 21:12:08 2023"
   rime_version: 1.8.5
 patch:
-  style:
-    color_scheme: lost_temple
-    corner_radius: 0
-    font_face: "Sarasa Gothic CL"
-    font_point: 16
-    horizontal: false
-  app_options/gvim.exe/ascii_mode: true
-  app_options/Everything.exe/ascii_mode: true
-  app_options/windowsterminal.exe/ascii_mode: true
+  __include: "__weasel.yaml:/patch" # 提取到外面，以免自动生成的配置干扰
+  "style/color_scheme": lost_temple

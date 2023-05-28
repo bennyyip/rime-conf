@@ -1,0 +1,17 @@
+patch:
+  app_options:
+    'everything.exe/ascii_mode': true
+    'gvim.exe/ascii_mode': true
+    'windowsterminal.exe/ascii_mode': true
+
+  style:
+    font_point: 16
+
+    font_face: 'Sarasa Gothic CL'
+    comment_font_face: 'Sarasa Gothic CL'
+    label_font_face: 'Sarasa Gothic CL'
+
+    horizontal: false
+    layout:
+      - round_corner: 0
+      - corner_radius: 0
