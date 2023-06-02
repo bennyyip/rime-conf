@@ -2,7 +2,8 @@
 
 !.gitignore
 
-!*custom.yaml
+!default.custom.yaml
+!double_pinyin_flypy.custom.yaml
 !__weasel.yaml
 
 !update.ps1
