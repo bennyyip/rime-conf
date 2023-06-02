@@ -6,9 +6,16 @@ recipe:
   description: >-
     完整安装
 install_files: >-
-  *custom.yaml
+  default.custom.yaml
+  double_pinyin_flypy.custom.yaml
   __weasel.yaml
 
   update.ps1
 
   rime-install
+
+patch_files:
+  weasel.custom.yaml:
+    - patch/+:
+        __include: "__weasel.yaml:/patch"
+

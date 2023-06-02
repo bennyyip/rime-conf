@@ -2,8 +2,8 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3.0
   generator: "Weasel::UIStyleSettings"
-  modified_time: "Sun May 28 21:12:08 2023"
+  modified_time: "Mon May 29 17:42:07 2023"
   rime_version: 1.8.5
 patch:
-  __include: "__weasel.yaml:/patch" # 提取到外面，以免自动生成的配置干扰
+  __include: "__weasel.yaml:/patch"
   "style/color_scheme": lost_temple
