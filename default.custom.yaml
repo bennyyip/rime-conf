@@ -5,6 +5,7 @@ patch:
     - schema: double_pinyin_flypy
     - schema: jyut6ping3_ipa
     - schema: ipa_xsampa
+    - schema: japanese
   punctuator:
     full_shape:
       __include: punctuation:/full_shape

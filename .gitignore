@@ -4,6 +4,7 @@
 
 !default.custom.yaml
 !double_pinyin_flypy.custom.yaml
+!japanese.custom.yaml
 !__weasel.yaml
 
 !update.ps1
@@ -12,4 +13,3 @@
 !full.recipe.yaml
 !*packages.conf
 !README.md
-
