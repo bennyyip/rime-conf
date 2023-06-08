@@ -8,6 +8,7 @@ recipe:
 install_files: >-
   default.custom.yaml
   double_pinyin_flypy.custom.yaml
+  japanese.custom.yaml
   __weasel.yaml
 
   update.ps1
@@ -18,4 +19,3 @@ patch_files:
   weasel.custom.yaml:
     - patch/+:
         __include: "__weasel.yaml:/patch"
-
