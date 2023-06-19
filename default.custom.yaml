@@ -12,6 +12,8 @@ patch:
     half_shape:
       __include: punctuation:/half_shape
   key_binder:
+    select_first_character: "semicolon"  # 分号 ;
+    select_last_character: "apostrophe"  # 撇号 '
     bindings:
       [
         { accept: 'Control+p', send: Up, when: composing },
@@ -59,6 +61,4 @@ patch:
           toggle: extended_charset,
           when: always,
         },
-        { accept: semicolon, send: 2, when: has_menu },
-        { accept: apostrophe, send: 3, when: has_menu },
       ]
