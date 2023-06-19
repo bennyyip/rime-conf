@@ -8,7 +8,7 @@ patch:
 
   switches:
     - name: ascii_mode
-      reset: 1
+      reset: 0
       states: [ 中文, 西文 ]
     - name: traditionalization
       states: [ 汉字, 漢字 ]
@@ -40,7 +40,7 @@ patch:
     # suffix: ";"
     initial_quality: 1.1     # 初始权重
     enable_sentence: false   # 禁止造句
-    enable_user_dict: false  # 禁用用户词典
+    enable_user_dict: true  # 禁用用户词典
     tips: 〔日本語〕
 
   # 处理符合特定规则的输入码，如网址、反查

@@ -1,16 +1,16 @@
 patch:
-  # app_options:
-  #   'everything.exe/ascii_mode': true
-  #   'gvim.exe/ascii_mode': true
-  #   'windowsterminal.exe/ascii_mode': true
-  #   'sumatrapdf.exe/ascii_mode': true
-  #   'code.exe/ascii_mode': true
-  #   cmd.exe:
-  #     ascii_mode: true
-  #   conhost.exe:
-  #     ascii_mode: true
-  #   pwsh.exe:
-  #     ascii_mode: true
+  app_options:
+    'everything.exe/ascii_mode': true
+    'gvim.exe/ascii_mode': true
+    'windowsterminal.exe/ascii_mode': true
+    'sumatrapdf.exe/ascii_mode': true
+    'code.exe/ascii_mode': true
+    cmd.exe:
+      ascii_mode: true
+    conhost.exe:
+      ascii_mode: true
+    pwsh.exe:
+      ascii_mode: true
 
   style:
     font_point: 16
@@ -19,7 +19,6 @@ patch:
     comment_font_face: 'Sarasa Gothic CL'
     label_font_face: 'Sarasa Gothic CL'
 
-    horizontal: false
     layout:
       align_type: center
       max_width: 0	#set 0 to disable max width
@@ -38,3 +37,9 @@ patch:
       shadow_offset_y: 4
       round_corner: 0
       corner_radius: 0
+
+
+    # horizontal: true
+    # inline_preedit: true
+    # layout/margin_x:  -1
+    # preview_type: preview_all
