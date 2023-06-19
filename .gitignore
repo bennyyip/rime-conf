@@ -6,6 +6,8 @@
 !double_pinyin_flypy.custom.yaml
 !japanese.custom.yaml
 !__weasel.yaml
+!melt_eng_flypy.dict.yaml
+!melt_eng.custom.yaml
 
 !update.ps1
 

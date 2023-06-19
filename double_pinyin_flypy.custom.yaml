@@ -46,3 +46,5 @@ patch:
   # 处理符合特定规则的输入码，如网址、反查
   "recognizer/patterns/+":
     jap: "^`[a-z_]*;?$"
+
+  "melt_eng/dictionary": melt_eng_flypy     # 挂载词库 melt_eng.dict.yaml
