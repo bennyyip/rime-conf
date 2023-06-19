@@ -8,6 +8,7 @@
 !__weasel.yaml
 !melt_eng_flypy.dict.yaml
 !melt_eng.custom.yaml
+!custom_phrase_double.txt
 
 !update.ps1
 

@@ -1,0 +1,4 @@
+# vim:shiftwidth=4:tabstop=4:noexpandtab
+
+nec	nec
+点解	dmjp
