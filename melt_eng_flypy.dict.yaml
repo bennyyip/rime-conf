@@ -5,11 +5,18 @@
 #
 
 ---
-name: melt_eng
-version: "2023-05-09"
+name: melt_eng_flypy
+version: '2023-05-09'
 import_tables:
-  - en_dicts/en_ext  # 补充
-  - en_dicts/en      # 英文主词库
+  - en_dicts/en_ext # 补充
+  - en_dicts/en # 英文主词库
 
-  - en_dicts/cn_en_double_pinyin_flypy    # 小鹤双拼
+  - en_dicts/cn_en_double_pinyin_flypy # 小鹤双拼
 ...
+修bug	ⓘxqbug
+开issue	ⓘkdissue
+提PR	ⓘtipr
+check下	ⓘcheckxx
+9up	ⓘjqup
+
+# vim:shiftwidth=4:tabstop=4:noexpandtab

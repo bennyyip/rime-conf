@@ -20,4 +20,4 @@ install_files: >-
 patch_files:
   weasel.custom.yaml:
     - patch/+:
-        __include: "__weasel.yaml:/patch"
+        __include: '__weasel.yaml:/patch'
