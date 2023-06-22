@@ -13,6 +13,8 @@ install_files: >-
   melt_eng_flypy.dict.yaml
   melt_eng.custom.yaml
   custom_phrase_double.txt
+  my_dict.dict.yaml
+  scel_dicts/*
 
   update.ps1
 

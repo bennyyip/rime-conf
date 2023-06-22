@@ -1,4 +1,14 @@
-*
+build/
+lua/
+opencc/
+others/
+sync/
+*.userdb/
+*.yaml
+*.bak
+*.txt
+*.gram
+*.lua
 
 !.gitignore
 
@@ -9,6 +19,8 @@
 !melt_eng_flypy.dict.yaml
 !melt_eng.custom.yaml
 !custom_phrase_double.txt
+!scel_dicts/*.yaml
+!my_dict.dict.yaml
 
 !update.ps1
 
