@@ -12,7 +12,7 @@ patch:
       states: [中文, 西文]
     - name: traditionalization
       states: [汉字, 漢字]
-      reset: 0
+      reset: 1
     - name: ascii_punct
       states: [。，, ．，]
     - name: emoji

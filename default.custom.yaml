@@ -12,10 +12,11 @@ patch:
     half_shape:
       __include: punctuation:/half_shape
   key_binder:
-    select_first_character: "semicolon"  # 分号 ;
-    select_last_character: "apostrophe"  # 撇号 '
+    select_first_character: 'semicolon' # 分号 ;
+    select_last_character: 'apostrophe' # 撇号 '
     bindings:
       [
+        { accept: 'Return', send: commit_code, when: composing },
         { accept: 'Control+p', send: Up, when: composing },
         { accept: 'Control+n', send: Down, when: composing },
         { accept: 'Control+b', send: Left, when: composing },
