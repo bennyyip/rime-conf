@@ -3,3 +3,5 @@
 nec	nec
 点解	dmjp
 舌位	ueww
+龈腭	ybee
+腭龈	eeyb
