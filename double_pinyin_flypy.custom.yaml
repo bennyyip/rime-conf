@@ -33,6 +33,12 @@ patch:
   'engine/translators/+':
     - table_translator@jap
 
+  'engine/processors/+':
+    - lua_processor@cold_word_drop_processor
+
+  'engine/filters/+':
+    - lua_filter@cold_word_drop_filter
+
   jap:
     tag: jap
     dictionary: japanese

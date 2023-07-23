@@ -6,6 +6,7 @@ patch:
     - schema: jyut6ping3_ipa
     - schema: ipa_xsampa
     - schema: japanese
+    # - schema: rime_ice
   punctuator:
     full_shape:
       __include: punctuation:/full_shape
@@ -14,6 +15,8 @@ patch:
   key_binder:
     select_first_character: 'semicolon' # 分号 ;
     select_last_character: 'apostrophe' # 撇号 '
+    turn_down_cand: "Control+j"
+    drop_cand: "Control+d"
     bindings:
       [
         { accept: 'Return', send: commit_code, when: composing },
@@ -23,7 +26,7 @@ patch:
         { accept: 'Control+f', send: Right, when: composing },
         { accept: 'Control+a', send: Home, when: composing },
         { accept: 'Control+e', send: End, when: composing },
-        { accept: 'Control+d', send: Delete, when: composing },
+        # { accept: 'Control+d', send: Delete, when: composing },
         { accept: 'Control+k', send: 'Shift+Delete', when: composing },
         { accept: 'Control+h', send: BackSpace, when: composing },
         { accept: 'Control+g', send: Escape, when: composing },
