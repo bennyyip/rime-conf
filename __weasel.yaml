@@ -4,40 +4,32 @@ patch:
     'code.exe/ascii_mode': true
     'conhost.exe/ascii_mode': true
     'everything.exe/ascii_mode': true
+    'alacritty.exe/ascii_mode': true
     'gvim.exe/ascii_mode': true
     'obsidian.exe/ascii_mode': true
     'pwsh.exe/ascii_mode': true
     'sumatrapdf.exe/ascii_mode': true
     'windowsterminal.exe/ascii_mode': true
 
-  style:
-    font_point: 16
+  'style/comment_font_face': 'Sarasa UI CL'
+  'style/font_face': 'Sarasa UI CL'
+  'style/font_point': 16
+  'style/label_font_face': 'Sarasa UI CL'
+  'style/layout/corner_radius': 0
+  'style/layout/round_corner': 0
 
-    font_face: 'Sarasa UI CL'
-    comment_font_face: 'Sarasa UI CL'
-    label_font_face: 'Sarasa UI CL'
-
-    layout:
-      align_type: center
-      max_width: 0	#set 0 to disable max width
-      min_width: 160
-      min_height: 0
-      max_height: 0	#set 0 to disable max height
-      border_width: 3
-      margin_x: 12
-      margin_y: 12
-      spacing: 10
-      candidate_spacing: 5
-      hilite_spacing: 4
-      hilite_padding: 2
-      shadow_radius: 0
-      shadow_offset_x: 4
-      shadow_offset_y: 4
-      round_corner: 0
-      corner_radius: 0
-
-
-    # horizontal: true
-    # inline_preedit: true
-    # layout/margin_x:  -1
-    # preview_type: preview_all
+  preset_color_schemes/ultramarine:
+    name: 電群青／Ultramarine
+    author: Ben Yip yebenmy@gmail.com>
+    text_color: 0
+    back_color: 15527662
+    border_color: 14737632
+    label_color: 5132111
+    hilited_text_color: 0
+    hilited_back_color: 13948116
+    candidate_text_color: 0
+    comment_text_color: 5132111
+    hilited_candidate_text_color: 16777215
+    hilited_comment_text_color: 14540253
+    hilited_candidate_back_color: 16711743
+    hilited_label_color: 16629165
