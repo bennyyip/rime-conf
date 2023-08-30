@@ -6,3 +6,7 @@ nec	nec
 龈腭	ybee
 腭龈	eeyb
 希治阁	xivige
+
+Mastadon	mast	1
+IG	IG	1
+FB	FB	1
