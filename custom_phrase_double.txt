@@ -10,3 +10,12 @@ nec	nec
 Mastadon	mast	1
 IG	IG	1
 FB	FB	1
+TI	TI	1
+NEC	NEC	1
+PA	PA	1
+CP	CP	1
+JK	JK	1
+GA	GA	1
+VS	VS	1
+SA	SA	1
+AME	AME	1
