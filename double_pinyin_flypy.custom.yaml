@@ -12,6 +12,9 @@ patch:
     - name: traditionalization
       states: [汉字, 漢字]
       reset: 1
+    - name: variants_hk
+      states: [ 傳統漢字, 香港傳統漢字]
+      reset: 1
     - name: ascii_punct
       states: [。，, ．，]
     - name: emoji
@@ -48,12 +51,12 @@ patch:
     - uniquifier
     - "lua_filter@cold_word_drop_filter"
 
-  # variants_hk:
-  #   option_name: variants_hk
-  #   opencc_config: t2hkf.json
+  variants_hk:
+    option_name: variants_hk
+    opencc_config: t2hkf.json
 
   traditionalize/tips: none
-  traditionalize/opencc_config: s2hk.json
+  # traditionalize/opencc_config: s2hk.json
 
 
   jap:
