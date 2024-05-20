@@ -48,9 +48,9 @@ patch:
     - uniquifier
     - "lua_filter@cold_word_drop_filter"
 
-  variants_hk:
-    option_name: variants_hk
-    opencc_config: t2hkf.json
+  # variants_hk:
+  #   option_name: variants_hk
+  #   opencc_config: t2hkf.json
 
   traditionalize/tips: none
   traditionalize/opencc_config: s2hk.json
