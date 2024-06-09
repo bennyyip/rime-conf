@@ -56,7 +56,7 @@ patch:
       shadow_offset_y: 4
 
   preset_color_schemes/ultramarine:
-    name: 電群青／Ultramarine
+    name: Ultramarine
     author: Ben Yip yebenmy@gmail.com>
     text_color: 0
     back_color: 15527662
