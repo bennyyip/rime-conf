@@ -32,10 +32,10 @@ patch:
           - key_bindings:/paging_with_minus_equal
           - key_bindings:/paging_with_comma_period
 
-    drop_cand: 'Control+Shift+d'
+    drop_cand: 'Control+q'
+    reduce_freq_cand: 'Control+j'
     select_first_character: semicolon
     select_last_character: apostrophe
-    turn_down_cand: 'Control+j'
   punctuator:
     full_shape: { __include: 'punctuation:/full_shape' }
     half_shape: { __include: 'punctuation:/half_shape' }
