@@ -29,6 +29,7 @@ patch:
     - matcher
     - affix_segmentor@jap
     - abc_segmentor
+    - affix_segmentor@radical_lookup  # 部件拆字自定义 tag
     - punct_segmentor
     - fallback_segmentor
 
