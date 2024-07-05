@@ -1,3 +1,7 @@
+# Place following lines in weasel.custom.yaml
+# __patch:
+#   - "patch/+": {__include: "__weasel.yaml:/patch"}
+
 patch:
   app_options:
     'cmd.exe/ascii_mode': true

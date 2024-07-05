@@ -12,12 +12,10 @@ sync/
 
 !.gitignore
 
-!default.custom.yaml
-!double_pinyin_flypy.custom.yaml
-!japanese.custom.yaml
+!*.custom.yaml
+weasel.custom.yaml
 !__weasel.yaml
 !melt_eng_flypy.dict.yaml
-!melt_eng.custom.yaml
 !custom_phrase_double.txt
 !scel_dicts/*.yaml
 !my_dict.dict.yaml
