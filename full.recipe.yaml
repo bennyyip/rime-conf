@@ -11,6 +11,7 @@ install_files: >-
   japanese.custom.yaml
   __weasel.yaml
   melt_eng.custom.yaml
+  radical_pinyin.custom.yaml
   custom_phrase_double.txt
   my_dict.dict.yaml
   scel_dicts/*
