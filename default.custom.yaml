@@ -11,6 +11,7 @@ patch:
     bindings:
       [
         { accept: Return, send: commit_code, when: composing },
+        { when: composing, accept: Control+w, send: Control+BackSpace },
         { accept: 'Control+Shift+1', select: .next, when: always },
         { accept: 'Control+Shift+2', toggle: ascii_mode, when: always },
         { accept: 'Control+Shift+3', toggle: traditionalization, when: always },
