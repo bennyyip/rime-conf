@@ -6,7 +6,6 @@ recipe:
   description: >-
     完整安装
 install_files: >-
-  default.custom.yaml
   double_pinyin_flypy.custom.yaml
   japanese.custom.yaml
   __weasel.yaml
