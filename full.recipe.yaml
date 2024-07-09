@@ -8,6 +8,7 @@ recipe:
 install_files: >-
   double_pinyin_flypy.custom.yaml
   japanese.custom.yaml
+  __default.yaml
   __weasel.yaml
   melt_eng.custom.yaml
   radical_pinyin.custom.yaml
