@@ -21,15 +21,17 @@ patch:
       - {accept: "Control+Shift+dollar", toggle: emoji, when: always}
       - {accept: "Control+Shift+percent", toggle: full_shape, when: always}
       - {accept: "Control+Shift+asciicircum", toggle: extended_charset, when: always}
+    __patch:
+      bindings/+:
+        __patch:
+          - key_bindings:/emacs_editing
+          - key_bindings:/move_by_word_with_tab
+          - key_bindings:/paging_with_minus_equal
+          # - key_bindings:/paging_with_comma_period
     drop_cand: "Control+q"
     reduce_freq_cand: "Control+j"
     select_first_character: semicolon
     select_last_character: apostrophe
-  "key_binder/bindings/+":
-    __patch:
-      - "key_bindings:/emacs_editing"
-      - "key_bindings:/move_by_word_with_tab"
-      - "key_bindings:/paging_with_minus_equal"
   punctuator:
     full_shape: {__include: "punctuation:/full_shape"}
     half_shape: {__include: "punctuation:/half_shape"}
