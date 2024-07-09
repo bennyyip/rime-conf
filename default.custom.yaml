@@ -1,47 +1,14 @@
+__patch:
+  - "patch/+": {__include: "__default.yaml:/patch"}
 customization:
   distribution_code_name: Weasel
   distribution_version: 0.16.1
-  generator: 'Rime::SwitcherSettings'
-  modified_time: 'Sun Jun  9 22:41:24 2024'
+  generator: "Rime::SwitcherSettings"
+  modified_time: "Tue Jul  9 17:24:30 2024"
   rime_version: 1.11.2
 patch:
-  ascii_composer:
-    switch_key: { Shift_R: commit_code }
-  key_binder:
-    bindings:
-      [
-        { accept: Return, send: commit_code, when: composing },
-        { when: composing, accept: Control+w, send: Control+BackSpace },
-        { accept: 'Control+Shift+1', select: .next, when: always },
-        { accept: 'Control+Shift+2', toggle: ascii_mode, when: always },
-        { accept: 'Control+Shift+3', toggle: traditionalization, when: always },
-        { accept: 'Control+Shift+4', toggle: emoji, when: always },
-        { accept: 'Control+Shift+5', toggle: full_shape, when: always },
-        { accept: 'Control+Shift+6', toggle: extended_charset, when: always },
-        { accept: 'Control+Shift+exclam', select: .next, when: always },
-        { accept: 'Control+Shift+at', toggle: ascii_mode, when: always },
-        { accept: 'Control+Shift+numbersign', toggle: traditionalization, when: always },
-        { accept: 'Control+Shift+dollar', toggle: emoji, when: always },
-        { accept: 'Control+Shift+percent', toggle: full_shape, when: always },
-        { accept: 'Control+Shift+asciicircum', toggle: extended_charset, when: always },
-      ]
-    __patch:
-      bindings/+:
-        __patch:
-          - key_bindings:/emacs_editing
-          - key_bindings:/move_by_word_with_tab
-          - key_bindings:/paging_with_minus_equal
-          - key_bindings:/paging_with_comma_period
-
-    drop_cand: 'Control+q'
-    reduce_freq_cand: 'Control+j'
-    select_first_character: semicolon
-    select_last_character: apostrophe
-  punctuator:
-    full_shape: { __include: 'punctuation:/full_shape' }
-    half_shape: { __include: 'punctuation:/half_shape' }
   schema_list:
-    - { schema: double_pinyin_flypy }
-    - { schema: jyut6ping3_ipa }
-    - { schema: ipa_xsampa }
-    - { schema: japanese }
+    - {schema: double_pinyin_flypy}
+    - {schema: jyut6ping3_ipa}
+    - {schema: ipa_xsampa}
+    - {schema: japanese}

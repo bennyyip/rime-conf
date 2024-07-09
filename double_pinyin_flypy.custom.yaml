@@ -80,6 +80,10 @@ patch:
   # 处理符合特定规则的输入码，如网址、反查
   'recognizer/patterns/+':
     jap: '^`[a-z_]*;?$'
+    radical_lookup: "^/r[a-z]+$"        # 响应部件拆字的反查，与 radical_lookup/prefix 匹配
+
+  radical_lookup/prefix: "/r"
+
 
   # 'melt_eng/dictionary': melt_eng_flypy # 挂载词库 melt_eng.dict.yaml
   'translator/dictionary': my_dict
@@ -87,3 +91,5 @@ patch:
   # 不要用rime ice的symbol
   punctuator:
     import_preset: default
+
+  corrector: "〔{comment}〕"

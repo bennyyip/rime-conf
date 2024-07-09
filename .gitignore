@@ -14,7 +14,9 @@ sync/
 
 !*.custom.yaml
 weasel.custom.yaml
+default.custom.yaml
 !__weasel.yaml
+!__default.yaml
 !melt_eng_flypy.dict.yaml
 !custom_phrase_double.txt
 !scel_dicts/*.yaml

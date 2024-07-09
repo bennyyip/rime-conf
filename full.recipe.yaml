@@ -24,3 +24,6 @@ patch_files:
   weasel.custom.yaml:
     - patch/+:
         __include: '__weasel.yaml:/patch'
+  default.custom.yaml:
+    - patch/+:
+        __include: '__default.yaml:/patch'
