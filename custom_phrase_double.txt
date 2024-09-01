@@ -19,3 +19,9 @@ GA	GA	1
 VS	VS	1
 SA	SA	1
 AME	AME	1
+LL	LL	1
+HH	HH	1
+mod	mod	1
+bili	bili	1
+Ed	ed	1
+liquipedia	liquipedia	1
