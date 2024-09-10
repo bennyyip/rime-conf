@@ -1,6 +1,8 @@
 # vim:shiftwidth=4:tabstop=4:noexpandtab
 
 nec	nec
+喺	xi	3
+佢	ju	1
 点解	dmjp
 舌位	ueww
 龈腭	ybee
@@ -19,6 +21,7 @@ GA	GA	1
 VS	VS	1
 SA	SA	1
 AME	AME	1
+DI	DI	1
 LL	LL	1
 HH	HH	1
 mod	mod	1

@@ -38,5 +38,6 @@ patch:
   schema_list:
     - {schema: double_pinyin_flypy}
     - {schema: jyut6ping3_ipa}
+    - {schema: jjsp}
     - {schema: ipa_xsampa}
     - {schema: japanese}

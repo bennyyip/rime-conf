@@ -1,0 +1,228 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: jjsp
+  name: 粵語三拼
+  version: '2022.06.07'
+  author:
+    - Ayaka Mikazuki <ayaka@mail.shn.hk>
+    - LeiMaau <leimaau@qq.com>
+    - chaaklau <chaakming@gmail.com>
+    - laubonghaudoi <laubonghaudoi@icloud.com>
+    - tanxpyox <tanxpyox@gmail.com>
+    - William915 <William915@gmail.com>
+    - szc126 (@szc126)
+    - Bing Jeung <bing@ososo.io>
+    - graphemecluster <graphemecluster@gmail.com>
+
+  description: |-
+    採用香港語言學學會粵語拼音方案
+    https://www.lshk.org/jyutping
+    支援聲調顯示同輸入
+    Telegram 用户交流組 https://t.me/rime_cantonese
+
+  dependencies:
+    - melt_eng # 英文输入，作为次翻译器挂载到拼音方案
+    - luna_pinyin
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [粵語, 西文]
+  - options: [noop, variants_hk, trad_tw, simplification]
+    states: [傳統漢字, 香港傳統漢字, 臺灣傳統漢字, 大陆简化汉字]
+    # 修改下行，改變預設用字 [0, 1, 2, 3 --> 對應上表]
+    # Edit the following line to change the default character style
+    #    [0 = OpenCC Traditional Chinese; 1 = Hong Kong TC; 2 = Taiwan TC; 3 = Mainland Simplified Chinese]
+    # Or remove to remember user setting
+    reset: 1
+  - name: ascii_punct
+    states: [。，, ．，]
+  - name: emoji
+    reset: 0
+    states: [💀, 😄]
+  - name: full_shape
+    states: [半角, 全角]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - affix_segmentor@luna_pinyin
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - script_translator@luna_pinyin
+    - table_translator@melt_eng # 英文输入
+  filters:
+    - simplifier@variants_hk
+    - simplifier@trad_tw
+    - simplifier
+    - simplifier@emoji
+    - uniquifier
+    - reverse_lookup_filter@jyut6ping3_reverse_lookup
+
+# https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/syllables.php
+# https://github.com/rime/home/wiki/SpellingAlgebra
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba;
+  # initials: zwutsponmlkjihgfdcba
+  delimiter: " '"
+  algebra:
+    - xform/([123456])//
+
+    - xform/^gw/X/
+    - xform/^kw/Q/
+    - xform/^ng/R/
+
+    - derive/^ap$/AP/
+    - derive/^ak$/AK/
+    - derive/^on$/ON/
+    - derive/^ng$/NG/
+    - derive/^oi$/OI/
+    - derive/^au$/AU/
+    - derive/^ou$/OU/
+    - derive/^ei$/EI/
+    - derive/^uk$/UK/
+    - derive/^aa$/AA/
+    - derive/^am$/AM/
+    - derive/^ok$/OK/
+    - derive/^ai$/AI/
+    - derive/^o$/OO/
+    - derive/^e$/EE/
+
+    - xform/^([aeiou])/E$1/
+
+    - xform/(.)oeng$/$1T/
+    - xform/(.)aang$/$1J;/
+    - xform/(.)ong$/$1G/
+    - xform/(.)yut$/$1R;/
+    - xform/(.)aai$/$1D/
+    - xform/(.)eon$/$1P;/
+    - xform/(.)aap$/$1D;/
+    - xform/(.)eot$/$1U;/
+    - xform/(.)aam$/$1H/
+    - xform/(.)aan$/$1J/
+    - xform/(.)yun$/$1Y/
+    - xform/(.)oek$/$1;;/
+    - xform/(.)aat$/$1N;/
+    - xform/(.)eoi$/$1X/
+    - xform/(.)aak$/$1Z;/
+    - xform/(.)eng$/$1K;/
+    - xform/(.)ang$/$1H;/
+    - xform/(.)ung$/$1S/
+    - xform/(.)ing$/$1K/
+    - xform/(.)aau$/$1O;/
+    - xform/(.)oet$/$1;;/
+    - xform/(.)un$/$1Y;/
+    - xform/(.)em$/$1M;/
+    - xform/(.)ut$/$1T;/
+    - xform/(.)ap$/$1T;/
+    - xform/(.)ak$/$1A;/
+    - xform/(.)on$/$1O/
+    - xform/(.)ek$/$1;;/
+    - xform/(.)ot$/$1G;/
+    - xform/(.)oe$/$1T/
+    - xform/(.)eu$/$1Q/
+    - xform/(.)et$/$1I;/
+    - xform/(.)ip$/$1M;/
+    - xform/(.)it$/$1I;/
+    - xform/(.)ui$/$1V;/
+    - xform/(.)oi$/$1X;/
+    - xform/(.)au$/$1C/
+    - xform/(.)an$/$1F/
+    - xform/(.)ou$/$1E/
+    - xform/(.)ei$/$1W/
+    - xform/(.)in$/$1B/
+    - xform/(.)iu$/$1Q/
+    - xform/(.)uk$/$1R/
+    - xform/(.)ik$/$1;/
+    - xform/(.)aa$/$1A/
+    - xform/(.)am$/$1Z/
+    - xform/(.)yu$/$1V/
+    - xform/(.)at$/$1N/
+    - xform/(.)ok$/$1P/
+    - xform/(.)im$/$1M/
+    - xform/(.)ai$/$1L/
+    - xform/(.)ep$/$1B;/
+    - xform/(.)e$/$1E;/
+
+    - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
+    - derive/^([a-z|;]{2});/$1/
+    - xform/^(m|r)$/$1$1/        #mm->[m], rr->[ng].
+
+translator:
+  dictionary: jyut6ping3
+  prism: jjsp
+  spelling_hints: 8 # 將呢度改作 0，可以去除候選字後邊嘅粵拼提示
+  enable_user_dict: true
+  # enable_completion:false
+  enable_sentence: true
+  initial_quality: 1.2
+  # strict_spelling: false
+
+  # TODO
+  preedit_format: {}
+
+luna_pinyin:
+  tag: luna_pinyin
+  dictionary: luna_pinyin
+  prefix: '`'
+  suffix: ';'
+  tips: 〔普通話〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+jyut6ping3_reverse_lookup:
+  tags: [luna_pinyin]
+  overwrite_comment: false
+  dictionary: jyut6ping3
+
+variants_hk:
+  option_name: variants_hk
+  opencc_config: t2hkf.json
+
+trad_tw:
+  option_name: trad_tw
+  opencc_config: t2tw.json
+
+emoji:
+  opencc_config: emoji.json
+  option_name: emoji
+  tips: all
+
+punctuator:
+  import_preset: symbols_cantonese
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    punct: '^/([0-9]0?|[a-z]+)$'
+    luna_pinyin: "^`[a-z']*;?$"
+
+# 次翻译器，英文
+melt_eng:
+  dictionary: melt_eng # 挂载词库 melt_eng.dict.yaml
+  enable_sentence: false # 禁止造句
+  enable_user_dict: false # 禁用用户词典
+  initial_quality: 1.1 # 初始权重
+  comment_format: # 自定义提示码
+    - xform/.*// # 清空提示码

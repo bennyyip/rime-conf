@@ -3,7 +3,7 @@ patch:
   'translator/preedit_format': {}
 
   'schema/dependencies/+':
-    - japanese
+    - jyut6ping3
 
   switches:
     - name: ascii_mode
@@ -30,14 +30,14 @@ patch:
   'engine/segmentors':
     - ascii_segmentor
     - matcher
-    - affix_segmentor@jap
+    - affix_segmentor@jyut
     - abc_segmentor
     - affix_segmentor@radical_lookup # 部件拆字自定义 tag
     - punct_segmentor
     - fallback_segmentor
 
   'engine/translators/+':
-    - table_translator@jap
+    - table_translator@jyut
 
   'engine/processors/+':
     - lua_processor@cold_word_drop_processor
@@ -67,19 +67,20 @@ patch:
   traditionalize/tips: none
   traditionalize/opencc_config: s2tw.json
 
-  jap:
-    tag: jap
-    dictionary: japanese
+  jyut:
+    tag: jyut
+    prism: jyut6ping3
+    dictionary: jyut6ping3
     prefix: '`'
     # suffix: ";"
     initial_quality: 1.1 # 初始权重
-    enable_sentence: false # 禁止造句
+    enable_sentence: true # 禁止造句
     enable_user_dict: true # 禁用用户词典
-    tips: 〔日本語〕
+    tips: 〔粵語〕
 
   # 处理符合特定规则的输入码，如网址、反查
   'recognizer/patterns/+':
-    jap: '^`[a-z_]*;?$'
+    jyut: '^`[a-z_]*;?$'
     radical_lookup: "^/r[a-z]+$"        # 响应部件拆字的反查，与 radical_lookup/prefix 匹配
 
   radical_lookup/prefix: "/r"

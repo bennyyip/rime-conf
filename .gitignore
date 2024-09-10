@@ -23,6 +23,7 @@ radical_pinyin.custom.yaml
 !custom_phrase_double.txt
 !scel_dicts/*.yaml
 !my_dict.dict.yaml
+!jjsp.schema.yaml
 
 !update.ps1
 
