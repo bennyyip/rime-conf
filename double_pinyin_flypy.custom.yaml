@@ -93,4 +93,5 @@ patch:
   punctuator:
     import_preset: default
 
+  translator/spelling_hints: 0
   corrector: "〔{comment}〕"
