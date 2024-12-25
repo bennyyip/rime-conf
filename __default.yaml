@@ -28,8 +28,6 @@ patch:
           - key_bindings:/move_by_word_with_tab
           - key_bindings:/paging_with_minus_equal
           # - key_bindings:/paging_with_comma_period
-    drop_cand: "Control+q"
-    reduce_freq_cand: "Control+j"
     select_first_character: semicolon
     select_last_character: apostrophe
   punctuator:

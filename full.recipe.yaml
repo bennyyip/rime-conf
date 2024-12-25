@@ -7,7 +7,6 @@ recipe:
     完整安装
 install_files: >-
   double_pinyin_flypy.custom.yaml
-  japanese.custom.yaml
   __default.yaml
   __weasel.yaml
   custom_phrase_double.txt

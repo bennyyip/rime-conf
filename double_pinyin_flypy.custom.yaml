@@ -39,22 +39,18 @@ patch:
   'engine/translators/+':
     - table_translator@jyut
 
-  'engine/processors/+':
-    - lua_processor@cold_word_drop_processor
-
   'engine/filters':
-    - 'lua_filter@corrector'
-    - 'reverse_lookup_filter@radical_reverse_lookup'
-    - 'lua_filter@autocap_filter'
-    - 'lua_filter@pin_cand_filter'
-    - 'lua_filter@reduce_english_filter'
-    - 'simplifier@emoji'
-    - 'simplifier@traditionalize'
+    - lua_filter@*corrector                         # 错音错字提示
+    - reverse_lookup_filter@radical_reverse_lookup  # 部件拆字滤镜
+    - lua_filter@*autocap_filter                    # 英文自动大写
+    - lua_filter@*pin_cand_filter                   # 置顶候选项（顺序要求：置顶候选项 > Emoji > 简繁切换）
+    - lua_filter@*reduce_english_filter             # 降低部分英语单词在候选项的位置
+    - simplifier@emoji                              # Emoji
+    - simplifier@traditionalize                     # 简繁切换
     - 'simplifier@variants_hk'
     # - simplifier@trad_tw
-    - 'lua_filter@search@radical_pinyin'
-    - uniquifier
-    - 'lua_filter@cold_word_drop_filter'
+    - lua_filter@*search@radical_pinyin             # 部件拆字辅码
+    - uniquifier                                    # 去重
 
   variants_hk:
     option_name: variants_hk
