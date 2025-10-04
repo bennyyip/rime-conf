@@ -28,3 +28,4 @@ mod	mod	1
 bili	bili	1
 Ed	ed	1
 liquipedia	liquipedia	1
+Björk	bjork
