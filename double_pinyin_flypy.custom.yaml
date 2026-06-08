@@ -40,16 +40,11 @@ patch:
     - table_translator@jyut
 
   'engine/filters':
-    - lua_filter@*corrector                         # 错音错字提示
     - reverse_lookup_filter@radical_reverse_lookup  # 部件拆字滤镜
-    - lua_filter@*autocap_filter                    # 英文自动大写
-    - lua_filter@*pin_cand_filter                   # 置顶候选项（顺序要求：置顶候选项 > Emoji > 简繁切换）
-    - lua_filter@*reduce_english_filter             # 降低部分英语单词在候选项的位置
     - simplifier@emoji                              # Emoji
     - simplifier@traditionalize                     # 简繁切换
     - 'simplifier@variants_hk'
     # - simplifier@trad_tw
-    - lua_filter@*search@radical_pinyin             # 部件拆字辅码
     - uniquifier                                    # 去重
 
   variants_hk:
@@ -81,7 +76,6 @@ patch:
 
   radical_lookup/prefix: "/r"
 
-
   # 'melt_eng/dictionary': melt_eng_flypy # 挂载词库 melt_eng.dict.yaml
   'translator/dictionary': my_dict
 
@@ -90,4 +84,6 @@ patch:
     import_preset: default
 
   translator/spelling_hints: 0
-  corrector: "〔{comment}〕"
+
+  # lua
+  # corrector: "〔{comment}〕"

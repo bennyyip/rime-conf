@@ -24,8 +24,12 @@ AME	AME	1
 DI	DI	1
 LL	LL	1
 HH	HH	1
+SB	SB	1
 mod	mod	1
 bili	bili	1
 Ed	ed	1
 liquipedia	liquipedia	1
 Björk	bjork
+a	啊
+o	哦
+
