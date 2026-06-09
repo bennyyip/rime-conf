@@ -12,12 +12,6 @@ patch:
     - name: traditionalization
       states: [汉字, 漢字]
       reset: 1
-    - options: [noop, variants_hk]
-      states: [臺灣傳統漢字, 香港傳統漢字]
-      reset: 1
-    # - options: [noop, variants_hk, trad_tw]
-    #   states: [傳統漢字, 香港傳統漢字, 臺灣傳統漢字]
-    #   reset: 1
     - name: ascii_punct
       states: [。，, ．，]
     - name: emoji
@@ -39,24 +33,7 @@ patch:
   'engine/translators/+':
     - table_translator@jyut
 
-  'engine/filters':
-    - reverse_lookup_filter@radical_reverse_lookup  # 部件拆字滤镜
-    - simplifier@emoji                              # Emoji
-    - simplifier@traditionalize                     # 简繁切换
-    - 'simplifier@variants_hk'
-    # - simplifier@trad_tw
-    - uniquifier                                    # 去重
-
-  variants_hk:
-    option_name: variants_hk
-    opencc_config: t2hkf.json
-
-  # trad_tw:
-  #   option_name: trad_tw
-  #   opencc_config: t2tw.json
-
-  traditionalize/tips: none
-  traditionalize/opencc_config: s2tw.json
+  traditionalize/opencc_config: s2hk.json
 
   jyut:
     tag: jyut
