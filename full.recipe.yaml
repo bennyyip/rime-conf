@@ -6,16 +6,15 @@ recipe:
   description: >-
     完整安装
 install_files: >-
-  double_pinyin_flypy.custom.yaml
   __default.yaml
   __weasel.yaml
   custom_phrase_double.txt
+  double_pinyin_flypy.schema.yaml
+  melt_eng.dict.yaml
+  melt_eng.schema.yaml
   my_dict.dict.yaml
+  radical_pinyin.schema.yaml
   scel_dicts/*
-
-  update.ps1
-
-  rime-install
 
 patch_files:
   weasel.custom.yaml:

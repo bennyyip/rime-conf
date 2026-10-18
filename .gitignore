@@ -15,11 +15,8 @@ sync/
 !*.custom.yaml
 weasel.custom.yaml
 default.custom.yaml
-melt_eng.custom.yaml
-radical_pinyin.custom.yaml
 !__weasel.yaml
 !__default.yaml
-!melt_eng_flypy.dict.yaml
 !custom_phrase_double.txt
 !scel_dicts/*.yaml
 !my_dict.dict.yaml
@@ -31,3 +28,9 @@ radical_pinyin.custom.yaml
 !full.recipe.yaml
 !*packages.conf
 !README.md
+
+
+!double_pinyin_flypy.schema.yaml
+!radical_pinyin.schema.yaml
+!melt_eng.dict.yaml
+!melt_eng.schema.yaml
