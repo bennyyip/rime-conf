@@ -9,6 +9,7 @@ sync/
 *.txt
 *.gram
 *.lua
+*.ico
 
 !.gitignore
 
