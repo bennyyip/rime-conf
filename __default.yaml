@@ -24,6 +24,7 @@ patch:
       - {accept: "Control+Shift+asciicircum", toggle: extended_charset, when: always}
       - {accept: Left, send: Page_Up, when: has_menu}
       - {accept: Right, send: Page_Down, when: has_menu}
+      - { when: has_menu, accept: semicolon, send: "2" }
     __patch:
       bindings/+:
         __patch:
@@ -31,7 +32,8 @@ patch:
           - key_bindings:/move_by_word_with_tab
           - key_bindings:/paging_with_minus_equal
   schema_list:
-    - {schema: double_pinyin_flypy}
+    # - {schema: double_pinyin_flypy}
+    - {schema: moran}
     - {schema: jyut6ping3_ipa}
     # - {schema: jjsp}
     - {schema: ipa_xsampa}
@@ -42,5 +44,11 @@ patch:
     - traditionalization
     - emoji
     - extended_charset
+    - std_t
+    - std_t2s
+    - std_t2tw
+    - std_t2hk
+    - std_t2jp
+    - std_t2dzing
   selector:
     {}

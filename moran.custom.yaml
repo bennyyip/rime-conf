@@ -1,0 +1,6 @@
+patch:
+  switches/@4/+:
+    options: [ std_t2hk, std_t2s  ]   # 用不到的其他字集也可以刪掉
+    states: [漢字, 汉字]
+    reset: 0                           # 設定默認值爲 *第一項* (從 0 開始計數)
+
