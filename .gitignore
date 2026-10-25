@@ -35,3 +35,4 @@ default.custom.yaml
 !radical_pinyin.schema.yaml
 !melt_eng.dict.yaml
 !melt_eng.schema.yaml
+!moran.ben.dict.yaml
