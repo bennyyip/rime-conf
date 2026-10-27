@@ -39,9 +39,10 @@ patch:
     # - {schema: double_pinyin_flypy}
     - {schema: moran}
     - {schema: jyut6ping3_ipa}
-    # - {schema: jjsp}
     - {schema: ipa_xsampa}
     - {schema: kagiroi}
+    # - {schema: jjsp}
+    # - {schema: mungyeong_dubeolsik}
   switcher/save_options:
     - full_shape
     - ascii_punct
