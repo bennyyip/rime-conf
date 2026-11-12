@@ -1,4 +1,6 @@
 patch:
+  switches/@3/+:
+    reset: 0
   switches/@4/+:
     options: [ std_t2hk, std_t2s, std_t2tw ]   # 用不到的其他字集也可以刪掉
     states: [漢字, 汉字, 台灣]

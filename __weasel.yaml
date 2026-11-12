@@ -6,10 +6,10 @@ patch:
   app_options/+:
     dota2.exe:
       inline_preedit: true
-    windowsterminal.exe:
-      ascii_mode: true
-    alacritty.exe:
-      ascii_mode: true
+    # windowsterminal.exe:
+    #   ascii_mode: true
+    # alacritty.exe:
+    #   ascii_mode: true
     # everything.exe:
     #   ascii_mode: true
     # gvim.exe:
