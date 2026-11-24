@@ -1,20 +1,13 @@
 # encoding: utf-8
 ---
 recipe:
-  Rx: full
+  Rx: ben
   args:
   description: >-
-    完整安装
+    私人配置
 install_files: >-
   __default.yaml
   __weasel.yaml
-  custom_phrase_double.txt
-  double_pinyin_flypy.schema.yaml
-  melt_eng.dict.yaml
-  melt_eng.schema.yaml
-  my_dict.dict.yaml
-  radical_pinyin.schema.yaml
-  scel_dicts/*
 
 patch_files:
   weasel.custom.yaml:
