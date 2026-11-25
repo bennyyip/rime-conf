@@ -1,16 +1,12 @@
 package plum
 import "core:crypto/sha2"
-
 import "core:flags"
 import "core:fmt"
 import "core:io"
-import "core:log"
 import "core:os"
 import "core:path/filepath"
 import "core:strings"
 import "core:terminal/ansi"
-
-println :: fmt.println
 
 Flags :: struct {
 	rime_dir: string,
@@ -289,6 +285,21 @@ apply_patches :: proc(
 	return nil
 }
 
+split_lines_skip_comment_iterator :: proc(
+	s: ^string,
+) -> (
+	_line, _trimed: string,
+	_ok: bool,
+) {
+	for line in strings.split_lines_iterator(s) {
+		trimed := strings.trim_space(line)
+		if trimed == "" || strings.starts_with(trimed, "#") {continue}
+
+		return line, trimed, true
+	}
+	return "", "", false
+}
+
 @(require_results)
 install_package :: proc(pkg: Package) -> os.Error {
 	println_bold("Installing:", pkg.repo)
@@ -311,24 +322,11 @@ install_package :: proc(pkg: Package) -> os.Error {
 
 		patches := make(map[string][dynamic]string)
 
-		lines := strings.split_lines(text)
-
-		for i := 0; i < len(lines); i += 1 {
-			line := lines[i]
-			trimed := strings.trim_space(line)
-			if trimed == "" || strings.starts_with(trimed, "#") {continue}
-
-			if trimed == "install_files: >-" {
-				i += 1
-				for ; i < len(lines); i += 1 {
-					line = lines[i]
-					trimed = strings.trim_space(line)
-					if trimed == "" || strings.starts_with(trimed, "#") {
-						continue
-					}
-
+		for _, s in split_lines_skip_comment_iterator(&text) {
+			if s == "install_files: >-" {
+				for line, trimed in split_lines_skip_comment_iterator(&text) {
 					if trimed == line {
-						i -= 1
+						#no_bounds_check text = text[-len(line) - 1:]
 						break
 					}
 
@@ -336,20 +334,13 @@ install_package :: proc(pkg: Package) -> os.Error {
 						install_glob(root, trimed) or_return
 					}
 				}
-			} else if trimed == "patch_files:" {
-				i += 1
+			} else if s == "patch_files:" {
 				indent_spaces := -1
 				file: string
 
-				for ; i < len(lines); i += 1 {
-					line = lines[i]
-					trimed = strings.trim_space(line)
-					if trimed == "" || strings.starts_with(trimed, "#") {
-						continue
-					}
-
+				for line, trimed in split_lines_skip_comment_iterator(&text) {
 					if trimed == line {
-						i -= 1
+						#no_bounds_check text = text[-len(line) - 1:]
 						break
 					}
 
@@ -371,7 +362,7 @@ install_package :: proc(pkg: Package) -> os.Error {
 		}
 
 		if err := apply_patches(pkg, root, patches); err != nil {
-			println(err)
+			os.print_error(os.stderr, err, "Error when applying patch")
 		}
 	} else {
 		install_glob(root, "*.yaml") or_return
@@ -387,22 +378,19 @@ install_package :: proc(pkg: Package) -> os.Error {
 	return nil
 }
 
-println_bold :: proc(
-	args: ..any,
-	color := ansi.FG_GREEN,
-	sep := " ",
-	flush := true,
-) {
+println :: fmt.println
+
+println_bold :: proc(args: ..any, color := ansi.FG_GREEN, sep := " ") {
 	if OPT.isatty {
-		fmt.print(ansi.CSI + ansi.BOLD + ";")
-		fmt.print(color)
-		fmt.print(ansi.SGR)
+		fmt.print(ansi.CSI + ansi.BOLD + ";", color, ansi.SGR, sep = "")
 	}
-	fmt.println(..args, sep = sep, flush = flush)
+	fmt.print(..args, sep = sep)
 	if OPT.isatty {
-		fmt.print(ansi.CSI + ansi.RESET + ansi.SGR)
+		fmt.print(ansi.CSI + ansi.RESET + ansi.SGR, sep = "")
 	}
+	fmt.print('\n')
 }
+
 
 @(require_results)
 default_opt :: proc() -> os.Error {
@@ -440,7 +428,6 @@ main :: proc() {
 	println_bold("RIME DIR:", OPT.rime_dir, color = ansi.FG_MAGENTA)
 	println_bold("PKG DIR:", OPT.pkg_dir, color = ansi.FG_MAGENTA)
 	println_bold("CONF:", OPT.conf, color = ansi.FG_MAGENTA)
-	println()
 
 	ensure(os.make_directory_all(OPT.pkg_dir) == nil)
 	pkgs, err = load_pakcge_conf(OPT.conf)
@@ -453,7 +440,6 @@ main :: proc() {
 			{OPT.pkg_dir, repo_path(pkg), ".git"},
 			context.allocator,
 		)
-
 		if !os.exists(gitpath) {
 			if state, err = fetch_package(pkg); err != nil || !state.success {
 				os.print_error(os.stderr, err, pkg.repo)
