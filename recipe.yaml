@@ -8,6 +8,8 @@ recipe:
 install_files: >-
   __default.yaml
   __weasel.yaml
+  moran.ben.dict.yaml
+  moran.extended.dict.yaml
 
 patch_files:
   weasel.custom.yaml:

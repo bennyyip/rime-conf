@@ -1,8 +1,10 @@
 package plum
 import "core:crypto/sha2"
+
 import "core:flags"
 import "core:fmt"
 import "core:io"
+import "core:log"
 import "core:os"
 import "core:path/filepath"
 import "core:strings"
@@ -23,6 +25,7 @@ Package :: struct {
 	branch: string,
 }
 
+@(require_results)
 fetch_package :: proc(
 	pkg: Package,
 ) -> (
@@ -62,6 +65,8 @@ fetch_package :: proc(
 
 	return state, nil
 }
+
+@(require_results)
 update_package :: proc(
 	pkg: Package,
 ) -> (
@@ -87,6 +92,7 @@ update_package :: proc(
 	return state, nil
 }
 
+@(require_results)
 load_pakcge_conf :: proc(path: string) -> (pkgs: []Package, err: os.Error) {
 	packages := make([dynamic]Package, context.allocator)
 
@@ -103,12 +109,14 @@ load_pakcge_conf :: proc(path: string) -> (pkgs: []Package, err: os.Error) {
 	return packages[:], nil
 }
 
+@(require_results)
 repo_path :: proc(pkg: Package) -> string {
 	user, _, path := strings.partition(pkg.repo, "/")
 	path = strings.trim_prefix(path, "rime-")
 	return strings.concatenate({user, "/", path})
 }
 
+@(require_results)
 sha256_hash_file :: proc(
 	f: ^os.File,
 ) -> (
@@ -136,6 +144,7 @@ sha256_hash_file :: proc(
 // check sha256 sum before os.copy_file
 //
 // return true if copy is needed
+@(require_results)
 copy_file :: proc(dst_path, src_path: string) -> (res: bool, err: os.Error) {
 	src := os.open(src_path) or_return
 	defer os.close(src)
@@ -158,6 +167,8 @@ copy_file :: proc(dst_path, src_path: string) -> (res: bool, err: os.Error) {
 		}
 	}
 
+	os.make_directory_all(os.dir(dst_path)) or_return
+
 	dst := os.open(
 		dst_path,
 		{.Read, .Write, .Create, .Trunc},
@@ -170,10 +181,11 @@ copy_file :: proc(dst_path, src_path: string) -> (res: bool, err: os.Error) {
 	return true, err
 }
 
+@(require_results)
 install_glob :: proc(root, pat: string) -> os.Error {
 	p := os.join_path({root, pat}, context.temp_allocator) or_return
 
-	files := os.glob(p) or_return
+	files, _ := os.glob(p)
 	for file in files {
 		if strings.ends_with(file, ".custom.yaml") ||
 		   strings.ends_with(file, "recipe.yaml") {
@@ -192,6 +204,7 @@ install_glob :: proc(root, pat: string) -> os.Error {
 	return nil
 }
 
+@(require_results)
 apply_patches :: proc(
 	pkg: Package,
 	root: string,
@@ -276,6 +289,7 @@ apply_patches :: proc(
 	return nil
 }
 
+@(require_results)
 install_package :: proc(pkg: Package) -> os.Error {
 	println_bold("Installing:", pkg.repo)
 
@@ -294,7 +308,6 @@ install_package :: proc(pkg: Package) -> os.Error {
 			context.temp_allocator,
 		) or_return
 		text := string(data)
-
 
 		patches := make(map[string][dynamic]string)
 
@@ -320,7 +333,7 @@ install_package :: proc(pkg: Package) -> os.Error {
 					}
 
 					if trimed != line {
-						install_glob(root, trimed)
+						install_glob(root, trimed) or_return
 					}
 				}
 			} else if trimed == "patch_files:" {
@@ -361,14 +374,16 @@ install_package :: proc(pkg: Package) -> os.Error {
 			println(err)
 		}
 	} else {
-		install_glob(root, "*.yaml")
-		install_glob(root, "*.txt")
-		install_glob(root, "*.gram")
-		install_glob(root, "opencc/*.json")
-		install_glob(root, "opencc/*.ocd")
-		install_glob(root, "opencc/*.txt")
-		install_glob(root, "opencc/*.ocd2")
+		install_glob(root, "*.yaml") or_return
+		install_glob(root, "*.txt") or_return
+		install_glob(root, "*.gram") or_return
+
+		install_glob(root, "opencc/*.json") or_return
+		install_glob(root, "opencc/*.ocd") or_return
+		install_glob(root, "opencc/*.txt") or_return
+		install_glob(root, "opencc/*.ocd2") or_return
 	}
+
 	return nil
 }
 
@@ -389,6 +404,7 @@ println_bold :: proc(
 	}
 }
 
+@(require_results)
 default_opt :: proc() -> os.Error {
 	home_dir := os.user_home_dir(context.allocator) or_return
 	config_dir := os.user_config_dir(
@@ -437,6 +453,7 @@ main :: proc() {
 			{OPT.pkg_dir, repo_path(pkg), ".git"},
 			context.allocator,
 		)
+
 		if !os.exists(gitpath) {
 			if state, err = fetch_package(pkg); err != nil || !state.success {
 				os.print_error(os.stderr, err, pkg.repo)
@@ -453,6 +470,5 @@ main :: proc() {
 			os.print_error(os.stderr, err, pkg.repo)
 			continue
 		}
-
 	}
 }
